@@ -132,7 +132,8 @@ function appMenu() {
                         return "This ID is already taken";
                     } else {
                     return true;
-                }       
+                }  
+                }     
             }        
             },
             {
@@ -197,6 +198,7 @@ function appMenu() {
                         return true;
                     }                
                     }
+                }
                 },
             {
             type: "input",
