@@ -47,8 +47,11 @@ function appMenu() {
             name: "managerEmail",
             message: "What is the manager's email?",
             validate: answer => {
-                if (answer !== "") {
-                    return true;
+                const pass = answer.match (
+                    /\S+@\S+\.S+/
+                );
+                    if (pass) {
+                        return true;
                 }         
             return "Please enter an email!";
                 }
@@ -125,19 +128,24 @@ function appMenu() {
                     /^[1-9]\d*$/
                 );
                 if (pass) {
+                    if (idArray.includes(answer)) {
+                        return "This ID is already taken";
+                    } else {
                     return true;
-                }
-                return "Enter a number greater than 0";
-                }
+                }       
+            }        
             },
             {
             type: "input",
             name: "engineerEmail",
             message: "What is the engineer's email?",
-                validate: answer => {
-                if (answer !== "") {
-                    return true;
-                }         
+            validate: answer => {
+                const pass = answer.match (
+                    /\S+@\S+\.S+/
+                );
+                    if (pass) {
+                        return true;
+                }                
             return "Please enter an email!";
                 }
             },
@@ -183,19 +191,24 @@ function appMenu() {
                         /^[1-9]\d*$/
                     );
                     if (pass) {
+                        if (idArray.includes(answer)) {
+                            return "This ID is already taken";
+                        } else {
                         return true;
-                    }
-                    return "Enter a number greater than 0";
+                    }                
                     }
                 },
             {
             type: "input",
             name: "internEmail",
             message: "What is the interns email?",
-                    validate: answer => {
-                        if (answer !== "") {
-                            return true;
-                        }         
+            validate: answer => {
+                const pass = answer.match (
+                    /\S+@\S+\.S+/
+                );
+                    if (pass) {
+                        return true;
+                }             
                     return "Please enter an email!";
                         }
                     },
@@ -218,8 +231,6 @@ function appMenu() {
 
                 });
             }
-
-
 
 function buildTeam() {
     if (!fs.existsSync(OUTPUT_DIR)) {
